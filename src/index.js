@@ -30,7 +30,7 @@ export const useFlexSearch = (query, providedIndex, store, searchOptions, profil
       return
     }
 
-    const importedIndex = FlexSearch(profile);
+    const importedIndex = FlexSearch.create({profile});
     importedIndex.import(providedIndex)
 
     setIndex(importedIndex)
