@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo } from 'react'
 import FlexSearch from 'flexsearch'
 
-export const useFlexSearch = (query, providedIndex, store, searchOptions) => {
+export const useFlexSearch = (query, providedIndex, store, searchOptions, profile = 'default') => {
   const [index, setIndex] = useState(null)
 
   useEffect(() => {
@@ -30,7 +30,7 @@ export const useFlexSearch = (query, providedIndex, store, searchOptions) => {
       return
     }
 
-    const importedIndex = FlexSearch.create()
+    const importedIndex = FlexSearch(profile);
     importedIndex.import(providedIndex)
 
     setIndex(importedIndex)
